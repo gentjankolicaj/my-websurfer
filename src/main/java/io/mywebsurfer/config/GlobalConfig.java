@@ -18,6 +18,7 @@ public class GlobalConfig {
   public static final int E_TIMEOUT = 5000;
   //HtmlUnit browser timeout config
   public static final int H_TIMEOUT = 5000;
+
   public static String homeDirectory = System.getProperty("user.dir");
   public static String fileSeparator = System.getProperty("file.separator");
 

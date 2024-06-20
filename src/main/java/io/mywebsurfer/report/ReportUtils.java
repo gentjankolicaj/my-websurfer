@@ -3,7 +3,6 @@ package io.mywebsurfer.report;
 import io.mywebsurfer.config.GlobalConfig;
 import io.mywebsurfer.core.surfer.SurfResult;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
@@ -25,15 +24,11 @@ public class ReportUtils {
   public static void saveResults(List<SurfResult> list, String fileName) throws Exception {
     if (GlobalConfig.SaveSurfResults) {
       if (GlobalConfig.ReportFile.equals(ReportFileType.XLSX)) {
-
         saveResultsToXlsx(list, fileName, GlobalConfig.ReportFile);
-
       } else if (GlobalConfig.ReportFile.equals(ReportFileType.XLS)) {
-
         saveResultsToXls(list, fileName, GlobalConfig.ReportFile);
       }
     }
-
   }
 
   private static void saveResultsToXlsx(List<SurfResult> list, String fileName,
@@ -70,13 +65,12 @@ public class ReportUtils {
   }
 
   private static void saveResultsToXls(List<SurfResult> list, String fileName,
-      ReportFileType fileType)
-      throws Exception {
+      ReportFileType fileType) throws Exception {
 
     handleFileCollision(fileName, fileType);
 
-    Workbook workbook = WorkbookFactory.create(
-        false); // False argument results in creation of HSSFWorkbook object
+    // False argument results in creation of HSSFWorkbook object
+    Workbook workbook = WorkbookFactory.create(false);
 
     Sheet sheet = workbook.createSheet(GlobalConfig.sheetName);
 
@@ -100,7 +94,6 @@ public class ReportUtils {
 
     outputStream.flush();
     outputStream.close();
-
   }
 
   private static String buildFilePath(String fileName, ReportFileType fileType) {

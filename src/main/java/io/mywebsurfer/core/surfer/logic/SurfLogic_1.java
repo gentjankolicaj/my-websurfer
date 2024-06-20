@@ -36,14 +36,12 @@ public class SurfLogic_1 implements Logic<SurfResult> {
 
     addUserDetails(resultList);
 
-    //just for more user friendly looking
+    //just for more user-friendly looking
     SurfResult surfDetailsTitle = new SurfResult("Surfing details :", "");
     resultList.add(surfDetailsTitle);
 
     goToBaseUrl(resultList);
-
     navigateToSubDirectories(resultList);
-
     return resultList;
   }
 
